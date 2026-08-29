@@ -1,0 +1,43 @@
+# Hacker Bunker — submerged operations console.
+# Derived from the bundled wallpaper: cold telemetry, phosphor status lights,
+# and warm aquarium highlights over an almost-black control-room foundation.
+
+mode = "dark"
+
+accent = "#56CBD0"
+selection = "#16434B"
+muted = "#49666A"
+
+background = "#0B1015"
+dark_background = "#080C10"
+darker_background = "#05080B"
+lighter_background = "#13252C"
+
+foreground = "#C9E5DF"
+dark_foreground = "#66878A"
+light_foreground = "#A9CAC5"
+bright_foreground = "#E7FFF8"
+
+# A two-frequency signal border: telemetry cyan into aquarium amber.
+hyprland_active_border = "rgba(56cbd0ee) rgba(d7b76eee) 55deg"
+hyprland_inactive_border = "rgba(29454c99)"
+
+# Explicit application accents used by terminal and tab templates.
+active_border_color = "#56CBD0"
+active_tab_background = "#16434B"
+
+red = "#E87950"
+yellow = "#D7B76E"
+orange = "#C88A52"
+green = "#75B58A"
+cyan = "#56CBD0"
+blue = "#398DA4"
+magenta = "#A98BA5"
+brown = "#8B6942"
+
+bright_red = "#FF966E"
+bright_yellow = "#F1D18A"
+bright_green = "#96D5A8"
+bright_cyan = "#86ECE8"
+bright_blue = "#62BBD0"
+bright_magenta = "#C7A9C4"

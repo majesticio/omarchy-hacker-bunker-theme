@@ -1,0 +1,68 @@
+#!/bin/bash
+set -euo pipefail
+
+theme_name=${1:-}
+theme_dir="$HOME/.config/omarchy/themes/hacker-bunker"
+state_dir="$HOME/.local/state/omarchy/hacker-bunker-extras"
+
+screensaver_asset="$theme_dir/screensaver.txt"
+about_asset="$theme_dir/branding/about.txt"
+fastfetch_asset="$theme_dir/fastfetch/config.jsonc"
+
+screensaver_target="$HOME/.config/omarchy/branding/screensaver.txt"
+about_target="$HOME/.config/omarchy/branding/about.txt"
+fastfetch_target="$HOME/.config/fastfetch/config.jsonc"
+
+save_baseline() {
+  local target=$1 backup=$2 missing=$3 asset=$4 legacy=${5:-}
+
+  [[ -e $backup || -e $missing ]] && return
+
+  if [[ -n $legacy && -f $legacy ]]; then
+    cp "$legacy" "$backup"
+  elif [[ -f $target ]] && ! cmp -s "$target" "$asset"; then
+    cp "$target" "$backup"
+  elif [[ ! -e $target ]]; then
+    touch "$missing"
+  fi
+}
+
+restore_if_ours() {
+  local target=$1 backup=$2 missing=$3 asset=$4
+
+  [[ -f $target && -f $asset ]] || return
+  cmp -s "$target" "$asset" || return
+
+  if [[ -f $backup ]]; then
+    cp "$backup" "$target"
+  elif [[ -e $missing ]]; then
+    rm -f "$target"
+  fi
+}
+
+mkdir -p "$state_dir"
+
+if [[ $theme_name == "hacker-bunker" ]]; then
+  [[ -f $screensaver_asset && -f $about_asset && -f $fastfetch_asset ]] || exit 0
+
+  mkdir -p "$(dirname "$screensaver_target")" "$(dirname "$fastfetch_target")"
+
+  save_baseline \
+    "$screensaver_target" "$state_dir/screensaver.txt" "$state_dir/screensaver.missing" \
+    "$screensaver_asset" "$HOME/.config/omarchy/branding/screensaver.txt.before-hacker-bunker"
+  save_baseline \
+    "$about_target" "$state_dir/about.txt" "$state_dir/about.missing" "$about_asset"
+  save_baseline \
+    "$fastfetch_target" "$state_dir/fastfetch.jsonc" "$state_dir/fastfetch.missing" "$fastfetch_asset"
+
+  cp "$screensaver_asset" "$screensaver_target"
+  cp "$about_asset" "$about_target"
+  cp "$fastfetch_asset" "$fastfetch_target"
+else
+  restore_if_ours \
+    "$screensaver_target" "$state_dir/screensaver.txt" "$state_dir/screensaver.missing" "$screensaver_asset"
+  restore_if_ours \
+    "$about_target" "$state_dir/about.txt" "$state_dir/about.missing" "$about_asset"
+  restore_if_ours \
+    "$fastfetch_target" "$state_dir/fastfetch.jsonc" "$state_dir/fastfetch.missing" "$fastfetch_asset"
+fi

@@ -1,0 +1,146 @@
+# Hacker Bunker shell treatment.
+# Translucent command surfaces keep the wallpaper visible while crisp borders
+# and compact spacing make menus feel like instrumentation instead of cards.
+
+[bar]
+background       = "#080C10"
+background-alpha = 0.88
+text             = "#C9E5DF"
+active           = "#E87950"
+scale-with-font  = true
+size-horizontal  = 28
+size-vertical    = 30
+
+[hyprland]
+active-border            = "rgba(56cbd0ee) rgba(d7b76eee) 55deg"
+active-border-foreground = "rgba(86ece8ff) rgba(f1d18aff) 55deg"
+
+[controls]
+normal-color        = "#A9CAC5"
+normal-fill-alpha   = 0.035
+normal-border       = "#49666A"
+normal-border-width = 1
+normal-border-alpha = 0.52
+
+hover-cursor-color        = "#86ECE8"
+hover-cursor-fill-alpha   = 0.10
+hover-cursor-border       = "#56CBD0"
+hover-cursor-border-width = 1
+hover-cursor-border-alpha = 0.72
+
+focus-color        = "#E7FFF8"
+focus-fill-alpha   = 0.10
+focus-border       = "hyprland.active-border-foreground"
+focus-border-width = 1
+focus-border-alpha = 0.9
+
+selected-color        = "#F1D18A"
+selected-fill-alpha   = 0.14
+selected-border       = "#56CBD0"
+selected-border-width = 1
+selected-border-alpha = 0.8
+
+pressed-fill-alpha   = 0.22
+selection-fill-alpha = 0.32
+
+[spacing]
+scale = 0.94
+scale-with-font = true
+control-gap      = 7
+control-padding-x = 10
+popup-row-height = 27
+panel-gap        = 12
+panel-padding    = 16
+popup-padding    = 12
+
+[font]
+base-size = 12
+caption   = 10
+heading   = 16
+display   = 25
+
+[popups]
+background       = "#0B1015"
+background-alpha = 0.94
+text             = "#C9E5DF"
+border           = "hyprland.active-border"
+border-alpha     = 0.95
+border-width     = 2
+
+[tooltip]
+background       = "#080C10"
+background-alpha = 0.96
+text             = "#A9CAC5"
+border           = "#56CBD0"
+border-alpha     = 0.68
+
+[notifications]
+background       = "#0B1015"
+background-alpha = 0.94
+text             = "#C9E5DF"
+border           = "hyprland.active-border"
+border-alpha     = 0.95
+border-width     = 2
+countdown        = "#F1D18A"
+
+[launcher]
+background                = "#0B1015"
+background-alpha          = 0.92
+text                      = "#C9E5DF"
+border                    = "hyprland.active-border"
+border-alpha              = 1.0
+scrim                     = "#05080B"
+scrim-alpha               = 0.68
+selected-background       = "#16434B"
+selected-background-alpha = 0.78
+selected-text             = "#86ECE8"
+selected-border           = "#D7B76E"
+selected-border-alpha     = 0.82
+
+[menu]
+background                = "#0B1015"
+background-alpha          = 0.95
+text                      = "#C9E5DF"
+border                    = "hyprland.active-border"
+border-alpha              = 0.92
+scrim                     = "#05080B"
+scrim-alpha               = 0.58
+selected-background       = "#16434B"
+selected-background-alpha = 0.74
+selected-text             = "#86ECE8"
+selected-border           = "#56CBD0"
+selected-border-alpha     = 0.70
+
+[polkit]
+background       = "#0B1015"
+background-alpha = 0.97
+text             = "#C9E5DF"
+text-error       = "#FF966E"
+border           = "hyprland.active-border"
+border-error     = "#E87950"
+border-alpha     = 1.0
+scrim            = "#05080B"
+scrim-alpha      = 0.72
+accent           = "#56CBD0"
+
+[lock]
+background       = "#080C10"
+background-alpha = 0.80
+text             = "#E7FFF8"
+placeholder      = "#66878A"
+text-error       = "#FF966E"
+border           = "#49666A"
+border-active    = "hyprland.active-border"
+border-error     = "#E87950"
+border-alpha     = 1.0
+selection        = "#56CBD0"
+selection-alpha  = 0.46
+
+[image-picker]
+scrim                   = "#05080B"
+scrim-alpha             = 0.64
+text                    = "#E7FFF8"
+selected-border         = "hyprland.active-border"
+selected-border-alpha   = 1.0
+unselected-border       = "#66878A"
+unselected-border-alpha = 0.38
